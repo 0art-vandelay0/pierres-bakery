@@ -34,7 +34,8 @@ This is a console app that gives you two bakery options to order. There are buy 
     -   If you would like to run the test files.
         -   cd to Bakery.Tests.
         -   enter `dotnet build` into your terminal.
-    -   Enter `dotnet run`.
+        -   enter `dotnet test` into your terminal.
+    -   cd back to Bakery dir and enter `dotnet run`.
     -   The program should start and you will see a welcome menu followed by a prompt.
     -   Follow the prompts and carriage return after each entry.
 
