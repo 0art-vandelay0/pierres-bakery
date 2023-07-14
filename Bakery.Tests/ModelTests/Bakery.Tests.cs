@@ -44,7 +44,7 @@ namespace Bakery.Tests.ModelTests
             int breadQuantity = 3;
             Bread newBread = new Bread(breadPrice, breadQuantity);
             int breadTotalPrice = newBread.BreadTotalPrice();
-            Assert.AreEqual(15, breadTotalPrice);
+            Assert.AreEqual(10, breadTotalPrice);
         }
     }
 }
