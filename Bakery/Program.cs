@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Reflection;
 
 namespace Bakery.Models
@@ -54,51 +55,31 @@ namespace Bakery.Models
 
         public static int GetBreadInput()
         {
-            Console.WriteLine("Would you like to purchase bread? y/n");
-            string breadResponse = Console.ReadLine();
-            try
-            {
-                if (breadResponse == "y" || breadResponse == "Y")
-                {
-                    Console.WriteLine("How many loaves of bread would you like to purchase?");
-                    int breadQuantity = int.Parse(Console.ReadLine());
-                    return breadQuantity;
-                }
-                else if (breadResponse == "n" || breadResponse == "N")
-                {
-                    return 0;
-                }
-                else
-                {
-                    throw new Exception();
-                }
-            }
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("⚠  Error processing your input '" + breadResponse + "' ⚠");
-                Console.WriteLine("Please enter a valid response of y or n.");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Try again...");
-                Console.WriteLine("\n");
-                Console.ResetColor();
-                return GetBreadInput();
-            }
+            string orderMessage = "Would you like to purchase bread? y/n";
+            int breadQuantity = GetInput(orderMessage);
+            return breadQuantity;
         }
 
         public static int GetPastryInput()
         {
-            Console.WriteLine("Would you like to purchase pastry? y/n");
-            string pastryResponse = Console.ReadLine();
+            string orderMessage = "Would you like to purchase pastry? y/n";
+            int pastryQuantity = GetInput(orderMessage);
+            return pastryQuantity;
+        }
+
+        public static int GetInput(string orderMessage)
+        {
+            Console.WriteLine(orderMessage);
+            string orderQuantity = Console.ReadLine();
             try
             {
-                if (pastryResponse == "y" || pastryResponse == "Y")
+                if (orderQuantity == "y" || orderQuantity == "Y")
                 {
-                    Console.WriteLine("How many pastries would you like?");
-                    int pastryQuantity = int.Parse(Console.ReadLine());
-                    return pastryQuantity;
+                    Console.WriteLine("How many would you like?");
+                    int quantity = int.Parse(Console.ReadLine());
+                    return quantity;
                 }
-                else if (pastryResponse == "n" || pastryResponse == "N")
+                else if (orderQuantity == "n" || orderQuantity == "N")
                 {
                     return 0;
                 }
@@ -107,18 +88,87 @@ namespace Bakery.Models
                     throw new Exception();
                 }
             }
-            catch (Exception)
+            catch (System.Exception)
             {
+
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("⚠  Error processing your input '" + pastryResponse + "' ⚠");
+                Console.WriteLine("⚠  Error processing your input '" + orderQuantity + "' ⚠");
                 Console.WriteLine("Please enter a valid response of y or n.");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Try again...");
-                Console.WriteLine("\n");
                 Console.ResetColor();
-                return GetPastryInput();
+                return GetInput(orderMessage);
             }
         }
+
+        // public static int GetBreadInput()
+        // {
+        //     Console.WriteLine("Would you like to purchase bread? y/n");
+        //     string breadResponse = Console.ReadLine();
+        //     try
+        //     {
+        //         if (breadResponse == "y" || breadResponse == "Y")
+        //         {
+        //             Console.WriteLine("How many loaves of bread would you like to purchase?");
+        //             int breadQuantity = int.Parse(Console.ReadLine());
+        //             return breadQuantity;
+        //         }
+        //         else if (breadResponse == "n" || breadResponse == "N")
+        //         {
+        //             return 0;
+        //         }
+        //         else
+        //         {
+        //             throw new Exception();
+        //         }
+        //     }
+        //     catch (Exception)
+        //     {
+        //         Console.ForegroundColor = ConsoleColor.Red;
+        //         Console.WriteLine("⚠  Error processing your input '" + breadResponse + "' ⚠");
+        //         Console.WriteLine("Please enter a valid response of y or n.");
+        //         Console.ForegroundColor = ConsoleColor.Yellow;
+        //         Console.WriteLine("Try again...");
+        //         Console.ResetColor();
+        //         return GetBreadInput();
+        //     }
+        // }
+
+        // public static int GetPastryInput()
+        // {
+        //     Console.WriteLine("Would you like to purchase pastry? y/n");
+        //     string pastryResponse = Console.ReadLine();
+        //     Console.WriteLine("\n");
+        //     try
+        //     {
+        //         if (pastryResponse == "y" || pastryResponse == "Y")
+        //         {
+        //             Console.WriteLine("How many pastries would you like?");
+        //             int pastryQuantity = int.Parse(Console.ReadLine());
+        //             Console.WriteLine("\n");
+        //             return pastryQuantity;
+        //         }
+        //         else if (pastryResponse == "n" || pastryResponse == "N")
+        //         {
+        //             return 0;
+        //         }
+        //         else
+        //         {
+        //             throw new Exception();
+        //         }
+        //     }
+        //     catch (Exception)
+        //     {
+        //         Console.ForegroundColor = ConsoleColor.Red;
+        //         Console.WriteLine("⚠  Error processing your input '" + pastryResponse + "' ⚠");
+        //         Console.WriteLine("Please enter a valid response of y or n.");
+        //         Console.ForegroundColor = ConsoleColor.Yellow;
+        //         Console.WriteLine("Try again...");
+        //         Console.WriteLine("\n");
+        //         Console.ResetColor();
+        //         return GetPastryInput();
+        //     }
+        // }
         public static void PrintCheckOut(int breadQuantity, int breadTotalPrice, int pastryQuantity, int pastryTotalPrice, int totalPrice)
         {
             if (totalPrice == 0)
