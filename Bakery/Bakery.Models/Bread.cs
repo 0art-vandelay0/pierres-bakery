@@ -11,7 +11,7 @@ namespace Bakery.Models
 
         public Bread(int breadPrice, int breadQuantity, int breadTotal)
         {
-            BreadPrice = breadPrice;
+            BreadPrice = 5;
             BreadQuantity = breadQuantity;
             BreadTotal = breadTotal;
         }
