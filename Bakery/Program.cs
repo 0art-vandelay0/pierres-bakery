@@ -29,13 +29,20 @@ namespace Bakery.Models
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("           – Menu –          ");
             Console.ResetColor();
-            Console.WriteLine("-----------------------------\n ");
-            Console.WriteLine("      🍰  Pastries 🍰      ");
-            Console.WriteLine("$2 each | Buy 4, Get 1 Free\n");
+            Console.WriteLine("-----------------------------");
 
 
-            Console.WriteLine("        🍞 Bread 🍞       ");
-            Console.WriteLine("$5 each | Buy 3, Get 1 Free\n");
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("                             ");
+            Console.WriteLine("       🍰  Pastries 🍰       ");
+            Console.WriteLine("  $2 ea | Buy 4, Get 1 Free  ");
+            Console.WriteLine("                             ");
+            Console.WriteLine("         🍞 Bread 🍞         ");
+            Console.WriteLine("  $5 ea | Buy 3, Get 1 Free  ");
+            Console.WriteLine("                             ");
+            Console.ResetColor();
+            Console.WriteLine(" \n ");
         }
     }
 }
