@@ -50,7 +50,7 @@ namespace Bakery.Models
             Console.WriteLine("  $5 ea | Buy 3, Get 1 Free  ");
             Console.WriteLine("                             ");
             Console.ResetColor();
-            Console.WriteLine(" \n ");
+            Console.WriteLine();
         }
 
         public static int GetBreadInput()
@@ -71,12 +71,14 @@ namespace Bakery.Models
         {
             Console.WriteLine(orderMessage);
             string orderQuantity = Console.ReadLine();
+            Console.WriteLine();
             try
             {
                 if (orderQuantity == "y" || orderQuantity == "Y")
                 {
                     Console.WriteLine("How many would you like?");
                     int quantity = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
                     return quantity;
                 }
                 else if (orderQuantity == "n" || orderQuantity == "N")
@@ -96,6 +98,7 @@ namespace Bakery.Models
                 Console.WriteLine("Please enter a valid response of y or n.");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Try again...");
+                Console.WriteLine();
                 Console.ResetColor();
                 return GetInput(orderMessage);
             }
@@ -113,6 +116,7 @@ namespace Bakery.Models
                 Console.ResetColor();
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine(" \u2049 No items were purchased. \u2049");
+                Console.WriteLine();
             }
             else
             {
@@ -131,6 +135,7 @@ namespace Bakery.Models
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine("Thank you for your purchase!");
                 Console.WriteLine("-----------------------------");
+                Console.WriteLine();
             }
         }
     }
