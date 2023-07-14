@@ -5,6 +5,15 @@ namespace Bakery.Models
 {
     public class Bread
     {
-        // add Bread class properties
+        public int BreadPrice { get; set; }
+        public int BreadQuantity { get; set; }
+        public int BreadTotal { get; set; }
+
+        public Bread(int breadPrice, int breadQuantity, int breadTotal)
+        {
+            BreadPrice = breadPrice;
+            BreadQuantity = breadQuantity;
+            BreadTotal = breadTotal;
+        }
     }
 }
