@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Bakery.Models
 {
@@ -9,7 +8,7 @@ namespace Bakery.Models
         public int BreadQuantity { get; set; }
         public int BreadTotal { get; set; }
 
-        public Bread(int breadPrice, int breadQuantity)
+        public Bread(int breadQuantity)
         {
             BreadPrice = 5;
             BreadQuantity = breadQuantity;

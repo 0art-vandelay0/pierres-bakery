@@ -11,18 +11,16 @@ namespace Bakery.Tests.ModelTests
         [TestMethod]
         public void BreadConstructor_CreatesInstanceOfBreadWithProperties_Bread()
         {
-            int breadPrice = 5;
             int breadQuantity = 1;
-            Bread newBread = new Bread(breadPrice, breadQuantity);
+            Bread newBread = new Bread(breadQuantity);
             Assert.AreEqual(typeof(Bread), newBread.GetType());
         }
 
         [TestMethod]
         public void BreadDiscount_ReturnsBreadDiscount_Int()
         {
-            int breadPrice = 5;
             int breadQuantity = 3;
-            Bread newBread = new Bread(breadPrice, breadQuantity);
+            Bread newBread = new Bread(breadQuantity);
             int breadDiscount = newBread.BreadDiscount();
             Assert.AreEqual(5, breadDiscount);
         }
@@ -30,9 +28,8 @@ namespace Bakery.Tests.ModelTests
         [TestMethod]
         public void BreadDiscount_ReturnsBreadDiscountWithNoDiscount_Int()
         {
-            int breadPrice = 5;
             int breadQuantity = 2;
-            Bread newBread = new Bread(breadPrice, breadQuantity);
+            Bread newBread = new Bread(breadQuantity);
             int breadDiscount = newBread.BreadDiscount();
             Assert.AreEqual(0, breadDiscount);
         }
@@ -40,9 +37,8 @@ namespace Bakery.Tests.ModelTests
         [TestMethod]
         public void BreadTotalPrice_ReturnsTotalPriceOfBread_Int()
         {
-            int breadPrice = 5;
             int breadQuantity = 3;
-            Bread newBread = new Bread(breadPrice, breadQuantity);
+            Bread newBread = new Bread(breadQuantity);
             int breadTotalPrice = newBread.BreadTotalPrice();
             Assert.AreEqual(10, breadTotalPrice);
         }
