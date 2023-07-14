@@ -15,5 +15,23 @@ namespace Bakery.Models
             BreadQuantity = breadQuantity;
             BreadTotal = breadTotal;
         }
+
+        public int BreadDiscount()
+        {
+            int breadDiscount = 0;
+            if (BreadQuantity % 3 == 0)
+            {
+                breadDiscount = (BreadQuantity / 3) * BreadPrice;
+            }
+            else if (BreadQuantity % 3 == 1)
+            {
+                breadDiscount = ((BreadQuantity - 1) / 3) * BreadPrice;
+            }
+            else if (BreadQuantity % 3 == 2)
+            {
+                breadDiscount = ((BreadQuantity - 2) / 3) * BreadPrice;
+            }
+            return breadDiscount;
+        }
     }
 }
