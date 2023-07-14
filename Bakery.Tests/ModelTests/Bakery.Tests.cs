@@ -36,5 +36,15 @@ namespace Bakery.Tests.ModelTests
             int breadDiscount = newBread.BreadDiscount();
             Assert.AreEqual(0, breadDiscount);
         }
+
+        [TestMethod]
+        public void BreadTotalPrice_ReturnsTotalPriceOfBread_Int()
+        {
+            int breadPrice = 5;
+            int breadQuantity = 3;
+            Bread newBread = new Bread(breadPrice, breadQuantity);
+            int breadTotalPrice = newBread.BreadTotalPrice();
+            Assert.AreEqual(15, breadTotalPrice);
+        }
     }
 }
