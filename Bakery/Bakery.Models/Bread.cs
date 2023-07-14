@@ -9,11 +9,10 @@ namespace Bakery.Models
         public int BreadQuantity { get; set; }
         public int BreadTotal { get; set; }
 
-        public Bread(int breadPrice, int breadQuantity, int breadTotal)
+        public Bread(int breadPrice, int breadQuantity)
         {
             BreadPrice = 5;
             BreadQuantity = breadQuantity;
-            BreadTotal = breadTotal;
         }
 
         public int BreadDiscount()
@@ -32,6 +31,12 @@ namespace Bakery.Models
                 breadDiscount = ((BreadQuantity - 2) / 3) * BreadPrice;
             }
             return breadDiscount;
+        }
+
+        public int BreadTotalPrice()
+        {
+            int breadTotalPrice = (BreadQuantity * BreadPrice) - BreadDiscount();
+            return breadTotalPrice;
         }
     }
 }

@@ -13,8 +13,7 @@ namespace Bakery.Tests.ModelTests
         {
             int breadPrice = 5;
             int breadQuantity = 1;
-            int breadTotal = 3;
-            Bread newBread = new Bread(breadPrice, breadQuantity, breadTotal);
+            Bread newBread = new Bread(breadPrice, breadQuantity);
             Assert.AreEqual(typeof(Bread), newBread.GetType());
         }
 
@@ -23,8 +22,7 @@ namespace Bakery.Tests.ModelTests
         {
             int breadPrice = 5;
             int breadQuantity = 3;
-            int breadTotal = 3;
-            Bread newBread = new Bread(breadPrice, breadQuantity, breadTotal);
+            Bread newBread = new Bread(breadPrice, breadQuantity);
             int breadDiscount = newBread.BreadDiscount();
             Assert.AreEqual(5, breadDiscount);
         }
@@ -34,8 +32,7 @@ namespace Bakery.Tests.ModelTests
         {
             int breadPrice = 5;
             int breadQuantity = 2;
-            int breadTotal = 2;
-            Bread newBread = new Bread(breadPrice, breadQuantity, breadTotal);
+            Bread newBread = new Bread(breadPrice, breadQuantity);
             int breadDiscount = newBread.BreadDiscount();
             Assert.AreEqual(0, breadDiscount);
         }
