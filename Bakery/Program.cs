@@ -9,8 +9,8 @@ namespace Bakery.Models
         public static void Main()
         {
             Intro();
+            int breadQuantity = GetBreadInput();
 
-            // GetInputs()
             // CalculateTotalPrice()
             // PrintCheckOut()
         }
@@ -43,6 +43,40 @@ namespace Bakery.Models
             Console.WriteLine("                             ");
             Console.ResetColor();
             Console.WriteLine(" \n ");
+        }
+
+        public static int GetBreadInput()
+        {
+            Console.WriteLine("Would you like to purchase bread? y/n");
+            string breadResponse = Console.ReadLine();
+            try
+            {
+                if (breadResponse == "y" || breadResponse == "Y")
+                {
+                    Console.WriteLine("How many loaves of bread would you like to purchase?");
+                    int breadQuantity = int.Parse(Console.ReadLine());
+                    return breadQuantity;
+                }
+                else if (breadResponse == "n" || breadResponse == "N")
+                {
+                    return 0;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("⚠  Error processing your input '" + breadResponse + "' ⚠");
+                Console.WriteLine("Please enter a valid response of y or n.");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Try again...");
+                Console.WriteLine("\n");
+                Console.ResetColor();
+                return GetBreadInput();
+            }
         }
     }
 }
