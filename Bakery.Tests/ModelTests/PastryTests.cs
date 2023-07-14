@@ -32,5 +32,14 @@ namespace Bakery.Tests.TestModels
             int pastryDiscount = newPastry.PastryDiscount();
             Assert.AreEqual(2, pastryDiscount);
         }
+
+        [TestMethod]
+        public void PastryDiscount_ReturnsPastryWithoutDiscount_int()
+        {
+            int pastryQuantity = 2;
+            Pastry newPastry = new Pastry(pastryQuantity);
+            int pastryDiscount = newPastry.PastryDiscount();
+            Assert.AreEqual(0, pastryDiscount);
+        }
     }
 }
